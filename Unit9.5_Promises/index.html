@@ -1,0 +1,30 @@
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="Pick a Number!" id="userInput">
+    <button onclick="fetchText()">Get Me Facts!</button>
+    <p id="insert"></p>
+    <script>
+        let baseURL = "http://numbersapi.com/";
+
+        function fetchText() { 
+            let num = document.getElementById("userInput").value; // Get value inside the function
+            let p = document.getElementById("insert");
+            
+            fetch(baseURL + num + "?json")
+            .then(response => response.json())
+            .then(json => {
+                p.innerHTML = json.text; // Update the paragraph with the fetched text
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                p.innerHTML = "Sorry, there was an error fetching the fact."; // Handle errors gracefully
+            });
+        }
+    </script>
+</body>
+</html>
