@@ -6,7 +6,7 @@ In this exercise, we will practice props in React by creating a spacecraft inven
 
 Your mission is to showcase various items aboard a spacecraft, detailing each one's name, type, quantity, and price. But there's a twist! You'll need to implement smart messages within your application: one to warn when any item's stock is running low 🚨 and another to highlight items of high value 💎 that could attract interstellar thieves.
 
-## Tasks 📋
+## Tasks
 
 - `index.html`
     - Add CDN links for React, ReactDOM, and Babel to enable JSX processing in the browser.
@@ -25,7 +25,7 @@ Your mission is to showcase various items aboard a spacecraft, detailing each on
 
 Happy coding!
 
-## Starter Code 🌱
+## File Code
 
 - `index.html` serves as the entry point for the web application. You will load React libraries and link to the React component scripts for in-browser JSX processing.
 - `App.js` is the main component that you will use to aggregate the inventory list, rendering `InventoryItem` components for each item in the inventory.
