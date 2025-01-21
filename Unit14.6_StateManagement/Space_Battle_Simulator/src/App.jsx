@@ -22,7 +22,8 @@ function App({minDamage = 0, maxDamage = 50}) {
 
 		setPlayerHealth(newPlayerHealth);
 		setEnemyHealth(newEnemyHealth);
-
+    
+    // TASK 2 - Track and set game status
 		if (newPlayerHealth === 0 && newEnemyHealth === 0)
 		{
 			setGameStatus("draw");
