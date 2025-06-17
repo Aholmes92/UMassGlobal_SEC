@@ -23,6 +23,14 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    gamesPlayed: {
+        type: Number,
+        default: 0
+    },
+    gamesWon: {
+        type: Number,
+        default: 0
+    },
     forgotPasswordToken: String,
     forgotPasswordTokenExpiry: Date, 
     verifyToken: String,

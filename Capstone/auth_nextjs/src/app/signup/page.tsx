@@ -22,7 +22,8 @@ export default function SignupPage() {
             console.log("Success!", response.data);
             router.push("/login");
         } catch (error: any) {
-            console.log("Signup Unsuccessful", error.message)
+            console.log("Signup Unsuccessful", error.message);
+            alert("Something went wrong. Please try again");
         } finally {
             setLoading(false);
         }

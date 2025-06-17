@@ -23,6 +23,8 @@ export default function LoginPage() {
             router.push("/profile");
         } catch (error: any) {
             console.log("Login failed", error.message);
+            alert("Login failed. Please check your email and password and try again.");
+            setUser({ email: '', password: '' });
         } finally {
             setLoading(false)
         }
