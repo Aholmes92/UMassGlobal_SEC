@@ -24,7 +24,7 @@ export default function PlayerProfile({params}: any) {
             <p><strong>Games Won:</strong> {params.gamesWon || 0}</p>
             <p><strong>Games Played:</strong> {params.gamesPlayed || 0}</p>
             <a href="/play">
-                <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 hover:font-bold">
                 Play Cee-Lo
                 </button>
             </a>
