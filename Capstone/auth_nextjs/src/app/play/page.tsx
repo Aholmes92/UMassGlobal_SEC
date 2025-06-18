@@ -131,7 +131,7 @@ export default function CeeLoPage() {
        </button>
        <a href='/profile/x'>
        <button
-           className="m-2 px-4 py-2 rounded bg-white-500 hover:bg-red-700 hover:text-white font-bold mt-4 text-black"
+           className="m-2 px-4 py-2 rounded bg-white-500 hover:bg-red-700 hover:text-white font-bold mt-4 text-charcoal"
            /*onClick= {endSession}*/>End Session
        </button></a>
      </div>

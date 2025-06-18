@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0d1b2a;
+  color: #e0e1dd;
+  margin: 0;
+}
+.container {
+  padding: 20px;
+}
+a {
+  color: #00b4d8;
+  text-decoration: none;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table, th, td {
+  border: 1px solid #415a77;
+}
+th, td {
+  padding: 8px;
+}
+button {
+  margin-right: 6px;
+}
+.planet-card {
+  border: 1px solid #415a77;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+.loading {
+  text-align: center;
+  padding: 60px;
+}
+.error {
+  color: #ff6b6b;
+}
