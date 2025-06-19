@@ -1,14 +1,37 @@
-The folder structure designed by our software architects ensures adherence to best practices:
+# Dog Adoption API
 
-- `controllers`: Contains the logic for handling incoming requests and returning responses to the client.
-- `models`: Defines the data models and interacts directly with the database.
-- `routes`: Manages the routes of your API, directing requests to the appropriate controller.
-- `middlewares`: Houses custom middleware functions, including authentication and rate limiting.
-- `.env`: Stores environment variables, such as database connection strings and the JWT secret.
-- `app.js`: The main entry point of your application, where you configure the Express app and connect all the pieces.
-- `db.js`: Manages the database connection.
-- `package.json`: Keeps track of npm packages and scripts necessary for your project.
+A Node.js REST API that allows users to register, authenticate, and manage dog adoptions. Built with Express and MongoDB Atlas.
 
-This structure provides a solid foundation for building a well-organized, scalable backend service. By separating concerns into dedicated directories and files, your project remains clean, navigable, and easier to debug and extend.
+## Setup
 
-View the rubric for this assessment [here](https://storage.googleapis.com/hatchways.appspot.com/employers/springboard/student_rubrics/Dog%20Adoption%20Platform%20Rubric.pdf)
+1. Clone the repository and install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+2. Create a `.env` file in the root and add your MongoDB connection string and JWT secret (see `.env` sample).
+
+3. Start the server:
+
+    ```bash
+    npm run dev
+    ```
+
+The server will run on `http://localhost:3000`.
+
+## Running Tests
+
+```bash
+npm test
+```
+
+## API Endpoints
+
+- `POST /api/auth/register` – Register a new user.
+- `POST /api/auth/login` – Login and receive a JWT.
+- `POST /api/dogs` – Register a dog (auth required).
+- `POST /api/dogs/:id/adopt` – Adopt a dog (auth required).
+- `DELETE /api/dogs/:id` – Remove a dog you own (auth required).
+- `GET /api/dogs/my` – List your registered dogs (auth required).
+- `GET /api/dogs/adopted` – List dogs you adopted (auth required).

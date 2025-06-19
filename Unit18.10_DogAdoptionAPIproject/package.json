@@ -1,17 +1,37 @@
 {
-	"name": "dog-adoption-platform-api",
-	"version": "1.0.0",
-	"description": "Dog Adoption Platform API",
-	"main": "app.js",
-	"scripts": {
-		"start": "node app.js",
-		"dev": "nodemon app.js"
-	},
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-	},
-	"devDependencies": {
-		"nodemon": "^3.1.0"
-	}
+  "name": "dog-adoption-api",
+  "version": "1.0.0",
+  "description": "A Node.js API for dog adoption with MongoDB Atlas, JWT auth and testing.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "mocha --timeout 10000"
+  },
+  "keywords": [
+    "express",
+    "mongo",
+    "dogs",
+    "adoption",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.3.1"
+  },
+  "devDependencies": {
+    "chai": "^4.4.1",
+    "chai-http": "^4.4.0",
+    "mocha": "^10.4.0",
+    "nodemon": "^3.1.0",
+    "supertest": "^6.3.3"
+  }
 }
