@@ -95,30 +95,46 @@ export default function CeeLoPage() {
  };
 
 
- /*route to stats to update user stats
- const router = useRouter()
- const endSession = async () => {
-     try {
-         await axios.get('/api/users/stats')
-         router.push('/profile')
-     } catch (error:any) {
-         console.log(error.message);
-     }
- };*/
+const router = useRouter();
+
+const endSession = async () => {
+  try {
+    const stats = JSON.parse(localStorage.getItem('ceeloStats') || '{"wins":0,"games":0}');
+    
+    // Only send the request if there's something to sync
+    if (stats.games > 0) {
+      const res = await axios.post('/api/users/stats', {
+        wins: stats.wins,
+        games: stats.games,
+      });
+
+      if (res.status === 200) {
+        console.log("Stats synced:", res.data);
+        localStorage.removeItem('ceeloStats'); // Clear stats after ending session
+      } else {
+        console.warn("Failed to sync stats", res.data);
+      }
+    }
+
+    router.push('/profile');
+  } catch (error: any) {
+    console.error("Error syncing stats:", error.message);
+  }
+};
 
 
  return (
-   <div className="p-6 text-center flex flex-col items-center justify-center min-h-screen py-2">
+   <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10 bg-gradient-to-br from-slate-100 to-slate-300 text-center">
      <h1 className="text-2xl font-bold mb-8">Play Cee-Lo</h1>
      <DiceDisplay dice={userDice} rolling={rolling} />
-     <p className="p-6">Your score: {userScore?.result}</p>
+     <p className="p-6 font-bold text-blue-800 mb-6">Your score: {userScore?.result}</p>
 
 
      <DiceDisplay dice={computerDice} rolling={rolling} />
-     <p className="p-6">Computer score: {computerScore?.result}</p>
+     <p className="p-6 font-bold text-blue-800 mb-6">Computer score: {computerScore?.result}</p>
 
 
-     {gameOver && <h2 className="font-bold my-4">{winner === 'Tie' ? "It's a tie!" : `${winner} wins!`}</h2>}
+     {gameOver && <h2 className="font-bold my-4 text-blue-800 mb-6">{winner === 'Tie' ? "It's a tie!" : `${winner} wins!`}</h2>}
 
 
      <div className="mt-4">
@@ -129,10 +145,10 @@ export default function CeeLoPage() {
        >
          {gameOver ? "Play Again" : "Roll Dice"}
        </button>
-       <a href='/profile/x'>
+       <a href='/profile'>
        <button
-           className="m-2 px-4 py-2 rounded bg-white-500 hover:bg-red-700 hover:text-white font-bold mt-4 text-charcoal"
-           /*onClick= {endSession}*/>End Session
+           className="m-2 px-4 py-2 rounded bg-white-500 hover:bg-red-700 hover:text-white font-bold mt-4 text-black"
+           onClick= {endSession}>End Session
        </button></a>
      </div>
    </div>
