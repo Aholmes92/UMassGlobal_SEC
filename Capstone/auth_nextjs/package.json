@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "mocha -r ts-node/register test/**/*.test.ts"
+    "test": "NODE_OPTIONS='--experimental-specifier-resolution=node' mocha --loader ./node_modules/ts-node/esm.mjs test/**/*.test.ts"
   },
   "dependencies": {
     "axios": "^1.9.0",
